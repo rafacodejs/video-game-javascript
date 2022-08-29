@@ -5,10 +5,18 @@ const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 const livesCounter = document.querySelector('#live');
+const timeCounter = document.querySelector('#time');
+const recordCounter = document.querySelector('#record');
+const pResult = document.querySelector('#result');
+
 let canvasSize;
 let elementsSize;
 let level = 0;
 let lives = 3;
+
+let timeStart;
+let timePlayer;
+let timeInterval;
 
 const playerPosition = {
   x: undefined,
@@ -47,6 +55,12 @@ function startGame() {
     return;
   }
 
+  if (!timeStart) {
+    timeStart = Date.now();
+    timeInterval = setInterval(showTime, 100);
+    showRecord();
+  }
+
   const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map((row) => row.trim().split(''));
 
@@ -65,7 +79,6 @@ function startGame() {
         if (!playerPosition.x && !playerPosition.y) {
           playerPosition.x = positionX;
           playerPosition.y = positionY;
-          console.log(playerPosition);
         }
       } else if (col === 'I') {
         giftPosition.x = positionX;
@@ -78,7 +91,6 @@ function startGame() {
       }
 
       game.fillText(emoji, positionX, positionY);
-      enemiesPosition = '';
     });
   });
 
@@ -94,7 +106,6 @@ function movePlayer() {
 
   if (giftCollision) {
     levelWin();
-    levelLose();
   }
 
   const enemyCollision = enemyPosition.find((enemy) => {
@@ -120,6 +131,8 @@ function levelLose() {
 
   if (lives <= 0) {
     level = 0;
+    lives = 3;
+    timeStart = undefined;
   }
   playerPosition.x = undefined;
   playerPosition.y = undefined;
@@ -127,7 +140,26 @@ function levelLose() {
 }
 
 function gameWin() {
-  alert('GANASTE!!!');
+  console.log('GANASTE!!!');
+  clearInterval(timeInterval);
+
+  const recordTime = localStorage.getItem('record_time');
+  const playerTime = Date.now() - timeStart;
+
+  if (recordTime) {
+    if (recordTime >= playerTime) {
+      localStorage.setItem('record_time', playerTime);
+      pResult.innerHTML = 'SUPERASTE EL RECORD :)';
+    } else {
+      pResult.innerHTML = 'lo siento, no superaste el records :(';
+    }
+  } else {
+    localStorage.setItem('record_time', playerTime);
+    pResult.innerHTML =
+      'Primera vez? Muy bien, pero ahora trata de superar tu tiempo :)';
+  }
+
+  console.log({ recordTime, playerTime });
 }
 
 function showLives() {
@@ -135,6 +167,13 @@ function showLives() {
 
   livesCounter.innerHTML = '';
   heartsArray.forEach((heart) => livesCounter.append(heart));
+}
+
+function showTime() {
+  timeCounter.innerHTML = Date.now() - timeStart;
+}
+function showRecord() {
+  recordCounter.innerHTML = localStorage.getItem('record_time');
 }
 
 window.addEventListener('keydown', moveByKeys);
@@ -150,13 +189,11 @@ function moveByKeys(event) {
     ? moveLeft()
     : event.key === 'ArrowRight'
     ? moveRight()
-    : event.key === 'ArrowLeft'
-    ? moveRight()
+    : event.key === 'ArrowDown'
+    ? moveDown()
     : console.log('Esa tecla no mueve nada');
 }
 function moveUp() {
-  console.log('Me quiero mover hacia arriba');
-
   if (playerPosition.y - elementsSize < elementsSize) {
     console.log('OUT');
   } else {
@@ -165,8 +202,6 @@ function moveUp() {
   }
 }
 function moveLeft() {
-  console.log('Me quiero mover hacia izquierda');
-
   if (playerPosition.x - elementsSize < elementsSize) {
     console.log('OUT');
   } else {
@@ -175,8 +210,6 @@ function moveLeft() {
   }
 }
 function moveRight() {
-  console.log('Me quiero mover hacia derecha');
-
   if (playerPosition.x + elementsSize > canvasSize) {
     console.log('OUT');
   } else {
@@ -185,7 +218,6 @@ function moveRight() {
   }
 }
 function moveDown() {
-  console.log('Me quiero mover hacia abajo');
   if (playerPosition.y + elementsSize > canvasSize) {
     console.log('OUT');
   } else {
