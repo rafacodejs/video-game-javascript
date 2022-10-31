@@ -1,6 +1,6 @@
-# [MovieLab](https://superbombboy.netlify.app/) | [<img src="https://i.postimg.cc/5NBMxTJX/github.png" alt="GitHub" height="20px"/>](https://github.com/rafacodejs) | [<img src="https://i.postimg.cc/J7BLFtdc/linkedin.png" alt="Linkedin" height="20px"/>](https://www.linkedin.com/in/rafacodejs/) | [<img src="https://i.postimg.cc/65TVxg9t/world-globe.png" alt="Portafolio Web" height="20px"/>](https://rafaelmalpica.netlify.app/)
+# [Super Bomb Boy](https://superbombboy.netlify.app/) | [<img src="https://i.postimg.cc/5NBMxTJX/github.png" alt="GitHub" height="20px"/>](https://github.com/rafacodejs) | [<img src="https://i.postimg.cc/J7BLFtdc/linkedin.png" alt="Linkedin" height="20px"/>](https://www.linkedin.com/in/rafacodejs/) | [<img src="https://i.postimg.cc/65TVxg9t/world-globe.png" alt="Portafolio Web" height="20px"/>](https://rafaelmalpica.netlify.app/)
 
-[![Movie-Lab-cover.jpg](https://i.postimg.cc/tC9S126x/Movie-Lab-cover.jpg)](https://themovielab.netlify.app/)
+[![Img4.jpg](https://i.postimg.cc/2yDPxh13/Img4.jpg)](https://themovielab.netlify.app/)
 
 ## 📜 Resumen 📜
 

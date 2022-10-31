@@ -61,9 +61,15 @@ p {
   position: relative;
   top: 45px;
 }
-@media (max-width: 440px) {
+@media screen and (min-width: 270px) and (max-width: 400px) {
+  .btns {
+    top: -50px;
+  }
+  .messages {
+    top: -120px;
+  }
   button {
-    margin-top: 25px;
+    margin-top: 5px;
   }
   #up,
   #down {
