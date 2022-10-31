@@ -1,12 +1,11 @@
 body {
-  background-color: #333;
+  background-color: #08164c;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
-
 .game-container {
   display: flex;
   align-items: center;
@@ -15,15 +14,13 @@ body {
   height: 100vh;
   width: 100vw;
 }
-
 canvas {
-  border: 4px solid #ff6600;
+  border: 4px solid white;
   border-radius: 8px;
-  background-color: #feff9d;
+  background-color: #c0a5e8;
   position: relative;
   top: 25px;
 }
-
 .btns {
   display: flex;
   justify-content: center;
@@ -33,28 +30,30 @@ canvas {
   position: relative;
   top: 40px;
 }
-
 button {
-  background-color: #fdef05;
+  background-color: #c0a5e8;
+  border: 2px solid;
   border-radius: 8px;
-  border-color: #ff6600;
+  border-color: #fff;
   font-family: inherit;
   margin: 0;
   padding: 5px 20px;
   width: 100px;
+  position: relative;
+  top: 10px;
 }
 button:not(:last-child) {
   margin-right: 10px;
 }
-
 .messages {
+  position: relative;
+  top: 20px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   width: 80%;
   max-width: 460px;
 }
-
 p {
   display: block;
   margin: 0;
@@ -62,7 +61,6 @@ p {
   position: relative;
   top: 45px;
 }
-
 @media (max-width: 440px) {
   button {
     margin-top: 25px;

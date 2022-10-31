@@ -3,6 +3,8 @@
  * El final de cada nivel debe ser el inicio del siguiente
  */
 
+
+
 const emojis = {
   '-': ' ',
   O: '🚪',
@@ -51,4 +53,28 @@ maps.push(`
     XX-XXXXXXX
     XX-----OXX
     XXXXXXXXXX
+  `);
+maps.push(`
+    O--------X
+    XXXXXXXX-X
+    XXXXX----X
+    XXXXX-XXXX
+    XXXXX--XXX
+    XXXXXX-XXX
+    XX-----XXX
+    XX-XXXXXXX
+    XX-----IXX
+    XXXXXXXXXX
+  `);
+maps.push(`
+    XXXXXXXXXX
+    XXXXX---IX
+    XX----XXXX
+    XXXXX----X
+    XX----XXX-
+    XX-XXXXX--
+    XX-----XXX
+    XXXXXX-XXX
+    XXXXXX--XX
+    XXXXXXXOXX
   `);
